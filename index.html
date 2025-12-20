@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Akimbo Labs | Home</title>
+    <meta name="description" content="Akimbo Labs is an indie company fueled by a deep passion for crafting engaging websites, innovative applications, and immersive gaming experiences.">
+    <meta property="og:title" content="Akimbo Labs">
+    <meta property="og:description" content="Akimbo Labs is an indie company fueled by a deep passion for crafting engaging websites, innovative applications, and immersive gaming experiences.">
+    <meta property="og:image" content="adev-icon.jpg">
+    <meta property="og:url" content="https://akimbolabs.site">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="adev-icon.jpg" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-logo">A</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="noise-bg"></div>
+    <div class="gradient-blob"></div>
+    <div class="gradient-blob secondary"></div>
+    <canvas id="fluid-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+
+    <div class="main-container">
+        <header class="brand-header">
+            <a href="https://akimbo.bio.link" target="_blank" class="brand-link">
+                <div class="header-content">
+                    <div class="header-row">
+                        <h1 class="glitch-text" data-text="KIMBO">
+                            <img draggable="false" src="adev-logo-nbg.png" class="header-logo" alt="A">
+                            KIMBO
+                        </h1>
+                    </div>
+                    <h1 class="glitch-text sub" data-text="LABS">LABS</h1>
+            </a>
+            <p class="tagline" id="cyber-fader"></p>
+            </div>
+
+            <div id="canvas-container"></div>
+
+            <div class="logo-slider-container">
+                <div class="slider-fade-left"></div>
+                <div class="slider-fade-right"></div>
+                <div class="logo-slider-track">
+                    <div class="client-logo"><img draggable="false" src="https://cdn.imgchest.com/files/1b4d4ab7eef0.png" alt="Client 1">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://cdn.imgchest.com/files/ac521d5f1f65.png" alt="Client 2">
+                    </div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 105px;max-height: 105px;" src="https://i.imgur.com/tBhsa72.png" alt="Client 3"></div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 120px;max-height: 120px;" src="https://cdn.imgchest.com/files/7bwckb5q997.png" alt="Client 4">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://i.postimg.cc/fWjxSymt/sharan-gold-logo-vert-notext-hd-nobg.png" alt="Client 5">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://i.imgur.com/fBY0KIb.png" alt="Client 6"></div>
+                    <div class="client-logo"><img draggable="false" src="https://i.imgur.com/QiZAaqm.png" alt="Client 7"></div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 120px;max-height: 120px;" src="https://i.imgur.com/1OlVolw.png" alt="Client 8"></div>
+                    <div class="client-logo"><img draggable="false" src="https://cdn.imgchest.com/files/1b4d4ab7eef0.png" alt="Client 1">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://cdn.imgchest.com/files/ac521d5f1f65.png" alt="Client 2">
+                    </div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 105px;max-height: 105px;" src="https://i.imgur.com/tBhsa72.png" alt="Client 3"></div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 120px;max-height: 120px;" src="https://cdn.imgchest.com/files/7bwckb5q997.png" alt="Client 4">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://i.postimg.cc/fWjxSymt/sharan-gold-logo-vert-notext-hd-nobg.png" alt="Client 5">
+                    </div>
+                    <div class="client-logo"><img draggable="false" src="https://i.imgur.com/fBY0KIb.png" alt="Client 6"></div>
+                    <div class="client-logo"><img draggable="false" src="https://i.imgur.com/QiZAaqm.png" alt="Client 7"></div>
+                    <div class="client-logo"><img draggable="false" style="width: 120px;height: 120px;max-height: 120px;" src="https://i.imgur.com/1OlVolw.png" alt="Client 8"></div>
+                </div>
+            </div>
+
+            <div class="cta-email-wrapper">
+                <a href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#97;&#107;&#105;&#109;&#98;&#111;&#108;&#97;&#98;&#115;&#46;&#115;&#105;&#116;&#101;" class="cta-email-box">
+                    <span class="cta-small">Start a project</span>
+                    <span class="cta-address">&#104;&#101;&#108;&#108;&#111;&#64;&#97;&#107;&#105;&#109;&#98;&#111;&#108;&#97;&#98;&#115;&#46;&#115;&#105;&#116;&#101;</span>
+                </a>
+            </div>
+
+            <div class="social-row">
+                <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="ri-twitter-x-line"></i></a>
+                <a href="#" class="social-icon" aria-label="Telegram"><i class="ri-telegram-line"></i></a>
+                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="social-icon" aria-label="GitHub"><i class="ri-github-line"></i></a>
+            </div>
+        </header>
+
+        <nav class="bento-grid">
+            <div class="tile" data-target="about" style="--i:1">
+                <div class="tile-inner">
+                    <span class="idx">01</span>
+                    <i class="ri-arrow-right-up-line arrow-icon"></i>
+                    <h2>About</h2>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+
+            <div class="tile" data-target="services" style="--i:2">
+                <div class="tile-inner">
+                    <span class="idx">02</span>
+                    <i class="ri-arrow-right-up-line arrow-icon"></i>
+                    <h2>Services</h2>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+
+            <div class="tile large" data-target="works" style="--i:3">
+                <div class="tile-inner">
+                    <span class="idx">03</span>
+                    <i class="ri-arrow-right-up-line arrow-icon"></i>
+                    <h2>Selected Works</h2>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+
+            <div class="tile" data-target="skills" style="--i:4">
+                <div class="tile-inner">
+                    <span class="idx">04</span>
+                    <i class="ri-arrow-right-up-line arrow-icon"></i>
+                    <h2>Skills</h2>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+
+            <div class="tile" data-target="contact" style="--i:5">
+                <div class="tile-inner">
+                    <span class="idx">05</span>
+                    <i class="ri-mail-send-line arrow-icon"></i>
+                    <h2>Contact</h2>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="overlay-wrapper" id="about-overlay">
+        <div class="overlay-content">
+            <button class="close-btn"><i class="ri-close-line"></i></button>
+            <div class="scroll-container">
+                <div class="reveal-item">
+                    <span class="section-label">01 — About</span>
+                    <h2>Who We Are</h2>
+                </div>
+                <div class="reveal-item" style="--delay: 0.1s">
+                    <p class="lead-text">Akimbo Labs is an indie company founded by Akshat Apoorv and is fueled with a deep passion for crafting engaging websites, innovative applications, and immersive gaming experiences.
+                    </p>
+                </div>
+                <div class="reveal-item" style="--delay: 0.2s">
+                    <p>Our mission is to merge creativity with functionality, delivering digital projects that stand out for their quality and originality. With a strong focus on user experience, we aim to create solutions that not only meet practical needs
+                        but also inspire and captivate audiences.
+                    </p>
+                </div>
+                <div class="reveal-item stats-grid" style="--delay: 0.3s">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-wrapper" id="services-overlay">
+        <div class="overlay-content">
+            <button class="close-btn"><i class="ri-close-line"></i></button>
+            <div class="scroll-container">
+                <div class="reveal-item">
+                    <span class="section-label">02 — Services</span>
+                    <h2>Our Capabilities</h2>
+                </div>
+                <div class="services-list">
+                    <div class="service-card reveal-item" style="--delay: 0.1s">
+                        <span class="service-number">01</span>
+                        <h3>Creative Direction</h3>
+                        <p>Brand strategy, visual identity, and creative concepts that define your digital presence.</p>
+                    </div>
+                    <div class="service-card reveal-item" style="--delay: 0.15s">
+                        <span class="service-number">02</span>
+                        <h3>Interactive Design</h3>
+                        <p>UI/UX design with motion, micro-interactions, and seamless user experiences.</p>
+                    </div>
+                    <div class="service-card reveal-item" style="--delay: 0.2s">
+                        <span class="service-number">03</span>
+                        <h3>WebGL & 3D</h3>
+                        <p>Immersive 3D experiences, product configurators, and interactive visualizations.</p>
+                    </div>
+                    <div class="service-card reveal-item" style="--delay: 0.25s">
+                        <span class="service-number">04</span>
+                        <h3>Development</h3>
+                        <p>React, Next.js, Three.js — performant frontends built for scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-wrapper" id="works-overlay">
+        <div class="overlay-content">
+            <button class="close-btn"><i class="ri-close-line"></i></button>
+            <div class="scroll-container">
+                <div class="reveal-item">
+                    <span class="section-label">03 — Works</span>
+                    <h2>Selected Works</h2>
+                </div>
+                <div class="works-grid">
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.1s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/e2b262fe9b8a.png" alt="Watchtopia X App">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 001</span>
+                                    <span class="hud-tag">STATUS: DEPLOYED</span>
+                                </div>
+                            </div>
+                            <a href="https://watchtopia.akimbolabs.site/app" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">01</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Android App</span>
+                                    <h3>Watchtopia X App</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.15s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/73cf59ae88fd.png" alt="Eco Echoes">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 002</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://ecoechoes.in" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">02</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Company Page</span>
+                                    <h3>Eco Echoes</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.2s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/e5e4fd9662b4.png" alt="Tarun Portfolio">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 003</span>
+                                    <span class="hud-tag">STATUS: ARCHIV</span>
+                                </div>
+                            </div>
+                            <a href="https://tarunasrani.com" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">03</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Portfolio</span>
+                                    <h3>Tarun Portfolio</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.25s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/c91a32ad4df8.png" alt="Kunal Portfolio">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 004</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://kunalkamde.com" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">04</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Portfolio</span>
+                                    <h3>Kunal Portfolio</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.25s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/526979d47d8e.png" alt="Tumul Portfolio">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 005</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://tumul.in" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">05</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Portfolio</span>
+                                    <h3>Tumul Portfolio</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.25s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/d954ba01c744.png" alt="Watchtopia X">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 006</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://watchtopia.akimbolabs.site" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">06</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Personal Work</span>
+                                    <h3>Watchtopia X</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.25s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/f80173858285.png" alt="Sharan Foundation">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 007</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://sharanjusticefoundation.in" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">07</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Company Page</span>
+                                    <h3>Sharan Foundation</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card-experimental reveal-item" style="--delay: 0.25s">
+                        <div class="work-visual">
+                            <img src="https://cdn.imgchest.com/files/da8e2a657e8c.png" alt="Saasha Foundation">
+                            <div class="hud-frame">
+                                <span class="corner-tl"></span><span class="corner-tr"></span>
+                                <span class="corner-bl"></span><span class="corner-br"></span>
+                                <div class="hud-stats">
+                                    <span class="hud-tag">ID: 008</span>
+                                    <span class="hud-tag">STATUS: LIVE</span>
+                                </div>
+                            </div>
+                            <a href="https://saasha.site" target="_blank" rel="noopener noreferrer" class="work-view-action">
+                                <i class="ri-expand-diagonal-line"></i>
+                                <span>View</span>
+                            </a>
+                        </div>
+                        <div class="work-data">
+                            <div class="work-header">
+                                <span class="work-num">08</span>
+                                <div class="work-heading-group">
+                                    <span class="work-cat">Company Page</span>
+                                    <h3>Saasha Foundation</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-wrapper" id="skills-overlay">
+        <div class="overlay-content">
+            <button class="close-btn"><i class="ri-close-line"></i></button>
+            <div class="scroll-container">
+                <div class="reveal-item">
+                    <span class="section-label">04 — Skills</span>
+                    <h2>Tech Stack</h2>
+                </div>
+                <div class="reveal-item" style="--delay: 0.1s">
+                    <p class="lead-text">We master the tools that power the modern web.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card expert reveal-item" style="--delay: 0.1s">
+                        <div class="skill-icon"><i class="ri-html5-fill"></i></div>
+                        <div class="skill-info">
+                            <h4>HTML</h4>
+                            <span class="skill-badge">Expert</span>
+                        </div>
+                    </div>
+                    <div class="skill-card expert reveal-item" style="--delay: 0.12s">
+                        <div class="skill-icon"><i class="ri-code-s-slash-line"></i></div>
+                        <div class="skill-info">
+                            <h4>PHP</h4>
+                            <span class="skill-badge">Expert</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card expert reveal-item" style="--delay: 0.14s">
+                        <div class="skill-icon"><i class="ri-global-line"></i></div>
+                        <div class="skill-info">
+                            <h4>Web Dev</h4>
+                            <span class="skill-badge">Expert</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.16s">
+                        <div class="skill-icon"><i class="ri-wordpress-fill"></i></div>
+                        <div class="skill-info">
+                            <h4>WordPress</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.17s">
+                        <div class="skill-icon"><img src="https://cdn.brandfetch.io/idEc0EPR9J/theme/light/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668070684902" class="custom-logo" alt="Unity Game Engine"></div>
+                        <div class="skill-info">
+                            <h4>Unity Game Engine</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.18s">
+                        <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/1200px-Android_Studio_icon_%282023%29.svg.png" class="custom-logo" alt="Android Studio"></div>
+                        <div class="skill-info">
+                            <h4>Android Studio</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.19s">
+                        <div class="skill-icon"><i class='bx bxl-python'></i></div>
+                        <div class="skill-info">
+                            <h4>Python</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.18s">
+                        <div class="skill-icon"><i class="ri-css3-fill"></i></div>
+                        <div class="skill-info">
+                            <h4>CSS</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.2s">
+                        <div class="skill-icon"><i class="ri-code-box-line"></i></div>
+                        <div class="skill-info">
+                            <h4>TypeScript</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card advanced reveal-item" style="--delay: 0.22s">
+                        <div class="skill-icon"><i class="ri-javascript-fill"></i></div>
+                        <div class="skill-info">
+                            <h4>JavaScript</h4>
+                            <span class="skill-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card intermediate reveal-item" style="--delay: 0.24s">
+                        <div class="skill-icon"><i class="ri-pen-nib-fill"></i></div>
+                        <div class="skill-info">
+                            <h4>Graphic Design</h4>
+                            <span class="skill-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card intermediate reveal-item" style="--delay: 0.25s">
+                        <div class="skill-icon"><i class='bx bxl-blender'></i></div>
+                        <div class="skill-info">
+                            <h4>Blender</h4>
+                            <span class="skill-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card intermediate reveal-item" style="--delay: 0.26s">
+                        <div class="skill-icon"><i class='bx bxl-java'></i></div>
+                        <div class="skill-info">
+                            <h4>Java</h4>
+                            <span class="skill-badge">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-wrapper" id="contact-overlay">
+        <div class="overlay-content">
+            <button class="close-btn"><i class="ri-close-line"></i></button>
+            <div class="scroll-container">
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <div class="reveal-item">
+                            <span class="section-label">05 — Contact</span>
+                            <h2>Let's Build</h2>
+                        </div>
+                        <div class="reveal-item" style="--delay: 0.1s">
+                            <p class="lead-text">Ready to create something extraordinary? Fill out the form or reach out directly.
+                            </p>
+                        </div>
+                        <div class="reveal-item contact-cta" style="--delay: 0.2s">
+                            <a href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#97;&#107;&#105;&#109;&#98;&#111;&#108;&#97;&#98;&#115;&#46;&#115;&#105;&#116;&#101;" class="big-email-link">
+                                <i class="ri-mail-line"></i> &#104;&#101;&#108;&#108;&#111;&#64;&#97;&#107;&#105;&#109;&#98;&#111;&#108;&#97;&#98;&#115;&#46;&#115;&#105;&#116;&#101;
+                            </a>
+                        </div>
+                        <div class="contact-socials" style="--delay: 0.4s">
+                            <a href="#" class="contact-social-link" aria-label="X (Twitter)"><i
+                                    class="ri-twitter-x-line"></i></a>
+                            <a href="#" class="contact-social-link" aria-label="Telegram"><i
+                                    class="ri-telegram-line"></i></a>
+                            <a href="#" class="contact-social-link" aria-label="LinkedIn"><i
+                                    class="ri-linkedin-fill"></i></a>
+                            <a href="#" class="contact-social-link" aria-label="Instagram"><i
+                                    class="ri-instagram-line"></i></a>
+                            <a href="#" class="contact-social-link" aria-label="GitHub"><i
+                                    class="ri-github-line"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper reveal-item" style="--delay: 0.15s">
+                        <form class="contact-form" id="contactForm">
+                            <input type="hidden" name="access_key" value="976c38d2-7ea5-431c-91c8-68a9d8dcd51f">
+                            <input type="hidden" name="subject" value="New Submission from Portfolio">
+                            <input type="hidden" name="redirect" value="https://akimbolabs.site#success">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required autocomplete="off">
+                                <label for="name">Your Name</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required autocomplete="off">
+                                <label for="email">Email Address</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <select id="budget" name="budget" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1k-5k">₹1k - ₹5k</option>
+                                    <option value="5k-10k">₹5k - ₹10k</option>
+                                    <option value="10k+">₹10k+</option>
+                                </select>
+                                <label for="budget">Project Budget</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group textarea-group">
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                                <label for="message">Tell us about your project</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon"><i class="ri-arrow-right-up-line"></i></span>
+                                <span class="btn-loading"><i class="ri-loader-4-line"></i></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirmation-modal" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="ri-checkbox-circle-fill"></i>
+                <h3>Message Sent</h3>
+            </div>
+            <p>Thank you for your message! We will get back to you as soon as possible.</p>
+            <button class="modal-close-btn">Return to Interface</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
