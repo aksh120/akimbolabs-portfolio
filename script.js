@@ -339,6 +339,15 @@ function initScrollReveal(overlay) {
     });
 
     scrollContainer.scrollTop = 0;
+    const scrollHint = overlay.querySelector('.scroll-hint');
+    if (scrollHint) {
+        const isScrollable = scrollContainer.scrollHeight > scrollContainer.clientHeight;
+        if (isScrollable) {
+            scrollHint.classList.remove('hidden');
+        } else {
+            scrollHint.classList.add('hidden');
+        }
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -366,6 +375,13 @@ function initScrollReveal(overlay) {
         if (rafId) return;
         rafId = requestAnimationFrame(() => {
             const y = scrollContainer.scrollTop;
+
+            if (scrollHint && y > 20) {
+                scrollHint.classList.add('hidden');
+            } else if (scrollHint && y <= 20) {
+                scrollHint.classList.remove('hidden');
+            }
+
             overlay.style.setProperty('--overlay-parallax-y', `${-y * 0.1}px`);
             overlay.style.setProperty('--overlay-parallax-rot', `${Math.min(Math.max((y - lastY) * 0.1, -5), 5)}deg`);
             lastY = y;
