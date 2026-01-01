@@ -44,10 +44,6 @@ A high-performance, immersive portfolio experience built for **Akimbo Labs**. Th
 3. **Configure Contact Form**:
    Replace the `access_key` value in the `index.html` contact form with your own key from [Web3Forms](https://web3forms.com/).
 
-## 🎨 Credits & Design
-
-Design and development by **Antigravity (Google Deepmind)** in collaboration with **Akimbo Labs**.
-
 ---
 
 *“Constructing the unseen. Crafted for impact.”*
